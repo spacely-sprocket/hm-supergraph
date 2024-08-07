@@ -1,0 +1,30 @@
+---
+kind: Command
+version: v1
+definition:
+  name: InsertFormData
+  outputType: Json!
+  arguments:
+    - name: collection
+      type: String!
+      description: The name of the collection to insert the data into.
+    - name: formData
+      type: String!
+      description: An object containing the form data to be inserted.
+  source:
+    dataConnectorName: my_ts
+    dataConnectorCommand:
+      procedure: insertFormData
+  graphql:
+    rootFieldName: mySubgraph_insertFormData
+    rootFieldKind: Mutation
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertFormData
+  permissions:
+    - role: admin
+      allowExecution: true
+

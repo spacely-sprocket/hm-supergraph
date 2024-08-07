@@ -1,0 +1,33 @@
+{
+  "name": "sessions",
+  "collections": {
+    "sessions": {
+      "type": "sessions"
+    }
+  },
+  "objectTypes": {
+    "sessions": {
+      "fields": {
+        "_id": {
+          "type": {
+            "scalar": "objectId"
+          }
+        },
+        "jwt": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        },
+        "user_id": {
+          "type": {
+            "nullable": {
+              "scalar": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: InsertCommentCommentData
+  fields:
+    - name: date
+      type: String!
+    - name: email
+      type: String!
+    - name: movieId
+      type: String!
+    - name: name
+      type: String!
+    - name: text
+      type: String!
+  graphql:
+    typeName: MySubgraph_InsertCommentCommentData
+    inputTypeName: MySubgraph_InsertCommentCommentDataInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: my_ts
+      dataConnectorObjectType: insertComment_commentData
+      fieldMapping:
+        date:
+          column:
+            name: date
+        email:
+          column:
+            name: email
+        movieId:
+          column:
+            name: movie_id
+        name:
+          column:
+            name: name
+        text:
+          column:
+            name: text
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: InsertCommentCommentData
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - date
+          - email
+          - movieId
+          - name
+          - text
+
+---
+kind: Command
+version: v1
+definition:
+  name: InsertComment
+  outputType: String!
+  arguments:
+    - name: commentData
+      type: InsertCommentCommentData!
+      description: An object containing the comment's data.
+  source:
+    dataConnectorName: my_ts
+    dataConnectorCommand:
+      procedure: insertComment
+  graphql:
+    rootFieldName: mySubgraph_insertComment
+    rootFieldKind: Mutation
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: InsertComment
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,94 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: my_ts
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: MY_SUBGRAPH_MY_TS_READ_URL
+      write:
+        valueFromEnv: MY_SUBGRAPH_MY_TS_WRITE_URL
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        JSON:
+          representation:
+            type: json
+          aggregate_functions: {}
+          comparison_operators: {}
+        String:
+          representation:
+            type: string
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+      object_types:
+        insertComment_commentData:
+          fields:
+            date:
+              type:
+                type: named
+                name: String
+            email:
+              type:
+                type: named
+                name: String
+            movie_id:
+              type:
+                type: named
+                name: String
+            name:
+              type:
+                type: named
+                name: String
+            text:
+              type:
+                type: named
+                name: String
+      collections: []
+      functions:
+        - name: getValidationSchema
+          arguments:
+            collection:
+              description: The collection to get the validation schema for.
+              type:
+                type: named
+                name: String
+          result_type:
+            type: named
+            name: JSON
+      procedures:
+        - name: insertComment
+          arguments:
+            commentData:
+              description: An object containing the comment's data.
+              type:
+                type: named
+                name: insertComment_commentData
+          result_type:
+            type: named
+            name: String
+        - name: insertFormData
+          arguments:
+            collection:
+              description: The name of the collection to insert the data into.
+              type:
+                type: named
+                name: String
+            formData:
+              description: An object containing the form data to be inserted.
+              type:
+                type: named
+                name: String
+          result_type:
+            type: named
+            name: JSON
+    capabilities:
+      version: 0.1.5
+      capabilities:
+        query:
+          variables: {}
+          nested_fields: {}
+        mutation: {}

@@ -1,0 +1,28 @@
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_ts
+  dataConnectorScalarType: String
+  representation: String
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_StringComparisonExp_1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Json
+  graphql:
+    typeName: MySubgraph_Json
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_ts
+  dataConnectorScalarType: JSON
+  representation: Json
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_JsonComparisonExp
+

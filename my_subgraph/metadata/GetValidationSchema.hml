@@ -1,0 +1,27 @@
+---
+kind: Command
+version: v1
+definition:
+  name: GetValidationSchema
+  outputType: Json!
+  arguments:
+    - name: collection
+      type: String!
+      description: The collection to get the validation schema for.
+  source:
+    dataConnectorName: my_ts
+    dataConnectorCommand:
+      function: getValidationSchema
+  graphql:
+    rootFieldName: mySubgraph_getValidationSchema
+    rootFieldKind: Query
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: GetValidationSchema
+  permissions:
+    - role: admin
+      allowExecution: true
+

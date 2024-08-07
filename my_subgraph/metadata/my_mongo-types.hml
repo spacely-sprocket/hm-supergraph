@@ -1,0 +1,92 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: ObjectId
+  graphql:
+    typeName: MySubgraph_ObjectId
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Date
+  graphql:
+    typeName: MySubgraph_Date
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: ObjectId
+  representation: ObjectId
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_ObjectIdComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: Date
+  representation: Date
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_DateComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: String
+  representation: String
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_StringComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Double
+  graphql:
+    typeName: MySubgraph_Double
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: ExtendedJson
+  graphql:
+    typeName: MySubgraph_ExtendedJson
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: Int
+  representation: Int
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_IntComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: Double
+  representation: Double
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_DoubleComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: my_mongo
+  dataConnectorScalarType: ExtendedJSON
+  representation: ExtendedJson
+  graphql:
+    comparisonExpressionTypeName: MySubgraph_ExtendedJsonComparisonExp
+

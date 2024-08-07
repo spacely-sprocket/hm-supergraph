@@ -1,0 +1,8 @@
+kind: Connector
+version: v1
+definition:
+  name: my_mongo
+  subgraph: my_subgraph
+  source: hasura/mongodb:v1.0.0
+  context: .
+  envFile: .env.cloud
